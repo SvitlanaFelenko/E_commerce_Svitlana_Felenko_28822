@@ -1,4 +1,6 @@
+import { analyzeAndValidateNgModules } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
+import { NEVER, never } from 'rxjs';
 import { MainService } from 'src/app/services/main.service';
 @Component({
   selector: 'app-products',
@@ -15,5 +17,9 @@ export class ProductsComponent implements OnInit {
   getProducts(){
     this.mainService.getProducts(this.mainService.productsRequest);
   }
-
+  addToCart(product) {
+    this.mainService.cart.push({ product });
+    console.log('dodano do koszyka produkt:');
+    console.log(product);
+  }
 }

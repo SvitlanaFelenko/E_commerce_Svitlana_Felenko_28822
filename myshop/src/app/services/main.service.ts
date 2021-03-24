@@ -16,6 +16,8 @@ export class MainService {
   products: any; // Tutaj wyląduje obiekt z produktami - odpowiedź API i bazy danych na naszą prośbę
   apiPath = 'http://jakubadamus.cba.pl/xhr.php?'; // Ścieżka do naszego api
 
+  cart = [];
+
   getProducts(productsRequest: { // obiekt z kryteriami, na podstawie których będziemy szukać produktów
       action: string; name: string; category: string;
     }) { //  Pobiera produkty poprzez API
