@@ -13,6 +13,9 @@ import { DashboardComponent } from './components/admin/dashboard/dashboard.compo
 import { componentFactoryName } from '@angular/compiler';
 import { MenuComponent } from './components/admin/menu/menu.component';
 import { AdmProductsComponent } from './components/admin/adm-products/adm-products.component';
+import { OrdersComponent } from './components/admin/orders/orders.component';
+import { from } from 'rxjs';
+import { ChartsModule } from 'ng2-charts';
 
 const appRoutes: Routes = [
   { path: 'cart', component: CartComponent },
@@ -20,6 +23,7 @@ const appRoutes: Routes = [
   { path: 'landing', component: LandingComponent },
   { path: 'adm_dashboard', component: DashboardComponent },
   { path: 'adm_products', component: AdmProductsComponent },
+  { path: 'orders', component: OrdersComponent },
   { path: '', redirectTo: '/landing', pathMatch: 'full' }
 ];
 
@@ -32,13 +36,15 @@ const appRoutes: Routes = [
     CartComponent,
     DashboardComponent,
     MenuComponent,
-    AdmProductsComponent
+    AdmProductsComponent,
+    OrdersComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
