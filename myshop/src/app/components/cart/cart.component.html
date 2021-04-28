@@ -9,7 +9,7 @@
         </thead>
         <tbody>
             <ng-container *ngFor="let object of this.mainService.cart">
-                <tr style="background-color: whitesmoke;">
+                <tr style= "background: linear-gradient(to left, #f1a0ddd0, #a9c9eed2);">
                     <td><img src="{{object.product.thumbnail}}" alt=""></td>
                     <td>
                         <ul>
@@ -20,26 +20,27 @@
                     </td>
                 </tr>
             </ng-container>
+            <div class="summary">
+                <p>Do zapłaty: {{getCartPrice()}}</p>
+            </div>
+            <div class="payment">
+                <div id="paypal">
+                </div>
+                <form action="http://www.jakubadamus.cba.pl/paypal.php" method="get" #paymentForm>
+                    <input type="text" #firstName name="firstName" id="" placeholder="Imie"><br><br>
+                    <input type="text" #lastName name="lastName" id="" placeholder="Nazwisko"><br><br>
+                    <input type="text" #email name="email" id="" placeholder="Email"><br><br>
+                    <input type="text" name="phone" id="" placeholder="Telefon"><br><br>
+                    <ng-container *ngFor="let object of this.mainService.cart">
+                        <input type="hidden" name="products[]" value="{{ object | json }}">
+                    </ng-container>
+                    <label for="">Akceptuję regulamin:
+                        <input #regulamin type="checkbox" name="aggrement" (change)="0">
+                    </label>
+                    <button [disabled]="!regulamin.checked" (click)="paymentForm.submit()">Kup</button>
+                </form>
+            </div>
         </tbody>
     </table>
-    <div class="summary">
-        <p>Do zapłaty: {{getCartPrice()}}</p>
-    </div>
-    <div class="payment">
-        <div id="paypal">
-        </div>
-        <form action="http://www.jakubadamus.cba.pl/paypal.php" method="get" #paymentForm>
-            <input type="text" #firstName name="firstName" id="" placeholder="Imie">
-            <input type="text" #lastName name="lastName" id="" placeholder="Nazwisko">
-            <input type="text" #email name="email" id="" placeholder="Email">
-            <input type="text" name="phone" id="" placeholder="Telefon">
-            <ng-container *ngFor="let object of this.mainService.cart">
-                <input type="hidden" name="products[]" value="{{ object | json }}">
-            </ng-container>
-            <label for="">Akceptuję regulamin:
-                <input #regulamin type="checkbox" name="aggrement" id="" (change)="0">
-            </label>
-            <button [disabled]="!regulamin.checked" (click)="paymentForm.submit()">Kup</button>
-        </form>
-    </div>
+ 
 </div>

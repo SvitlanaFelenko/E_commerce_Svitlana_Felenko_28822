@@ -1,19 +1,16 @@
 <app-panel-top></app-panel-top>
-
-<button routerLink="/landing">Powrót</button>
-
-<div class="products">
+<div class="products" style="padding: 30px;">
     <table style="margin:0 auto;" id="productsTable">
         <thead *ngIf="this.mainService.products">
             <tr>
-                <th>obrazek</th>
-                <th>dane</th>
-                <th>akcje</th>
+                <th>OBRAZEK</th>
+                <th>DANE</th>
+                <th>AKCJE</th>
             </tr>
         </thead>
         <tbody>
             <ng-container *ngFor="let product of this.mainService.products?.productsTable">
-                <tr style="background-color: whitesmoke;">
+                <tr>
                     <td><img src="{{product.thumbnail}}" alt=""></td>
                     <td>
                         <ul>
@@ -23,7 +20,7 @@
                         </ul>
                     </td>
                     <td>
-                        <button (click)="addToCart(product)">Do koszyka</button>
+                        <button (click)="addToCart(product)" class="button_position">Do koszyka</button>
                     </td>
                 </tr>
             </ng-container>

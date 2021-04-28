@@ -1,8 +1,38 @@
 #productsTable {
+  flex-basis: 30%;
+  min-width: 250px;
+  max-width: 700px;
+  font-size: 2vw;
   img {
-    width: 180px;
+    width: 100px;
   }
   td {
-    padding: 20px;
+    padding: 25px;
   }
+}
+tr {
+  background: linear-gradient(to left, #c5019436, #2b61a041);
+}
+th {
+  padding: 10px;
+  color: rgba(255, 255, 255, 0.596);
+  text-shadow: 0px 0px 5px rgba(255, 255, 255, 0.822);
+}
+li {
+  color: rgba(255, 255, 255, 0.911);
+  text-shadow: 0px 0px 5px rgba(255, 255, 255, 0.966);
+  text-transform: uppercase;
+}
+.button_position {
+  font-size: 15px;
+  background-color: rgba(243, 108, 232, 0.267);
+  padding: 5px 10px;
+  color: rgba(255, 255, 255, 0.596);
+  text-shadow: 0px 0px 5px rgba(255, 255, 255, 0.822);
+  border-radius: 5px;
+  border: 2px solid rgba(243, 235, 241, 0.568);
+  cursor: pointer;
+}
+button:active {
+  background: rgba(39, 3, 32, 0.562);
 }
